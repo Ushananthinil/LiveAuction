@@ -1,0 +1,24 @@
+{
+    "require-dev": {
+        "laravel/breeze": "^1.19",
+        "nunomaduro/collision": "^6.4",
+        "pestphp/pest": "^1.23",
+        "spatie/laravel-ignition": "^1.7",
+        "laravel/sail": "^1.43",
+        "laravel/tinker": "^2.10"
+    },
+    "require": {
+        "laravel/framework": "^9.52",
+        "laravel/sanctum": "^3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
