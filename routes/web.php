@@ -3,6 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\BidController;
+
+use App\Http\Controllers\AuctionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +37,18 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::resource('products', ProductController::class);
+    Route::get('/bids', [BidController::class, 'index'])->name('bids.index');
 });
+
+
+Route::middleware(['auth', 'role:bidder'])->group(function () {
+    Route::get('/auction/{product}', [AuctionController::class, 'show'])->name('auction.show');
+    Route::post('/bid/{product}', [BidController::class, 'store'])->name('bids.store');
+    Route::get('/my-bids', [\App\Http\Controllers\Bidder\MyBidsController::class, 'index'])->name('mybids');
+});
+
+
+
+
 
 require __DIR__.'/auth.php';

@@ -16,6 +16,9 @@ class Product extends Model
     'end_time',
     'image',
 ];
+public function bids() {
+    return $this->hasMany(Bid::class)->latest();
+}
 
 
 }

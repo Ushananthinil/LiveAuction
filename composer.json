@@ -9,7 +9,8 @@
     },
     "require": {
         "laravel/framework": "^9.52",
-        "laravel/sanctum": "^3.3"
+        "laravel/sanctum": "^3.3",
+        "beyondcode/laravel-websockets": "^1.14"
     },
     "autoload": {
         "psr-4": {

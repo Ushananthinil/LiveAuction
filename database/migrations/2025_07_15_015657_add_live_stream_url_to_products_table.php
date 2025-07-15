@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bids', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->decimal('amount', 10, 2);
-            $table->timestamps();
+        Schema::table('products', function (Blueprint $table) {
+             $table->string('live_stream_url')->nullable();
         });
     }
 
@@ -29,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bids');
+        Schema::table('products', function (Blueprint $table) {
+             $table->dropColumn('live_stream_url');
+        });
     }
 };

@@ -20,11 +20,11 @@
                 @auth
                     @if(auth()->user()->role === 'admin')
                         <a href="{{ route('products.index') }}" class="block text-gray-700 hover:bg-indigo-100 p-2 rounded transition">🛍️ Products</a>
-                        <a href="#" class="block text-gray-700 hover:bg-indigo-100 p-2 rounded transition">📈 Bids</a>
+                        <a href="{{route ('bids.index')}}" class="block text-gray-700 hover:bg-indigo-100 p-2 rounded transition">📈 Bids</a>
                         <a href="#" class="block text-gray-700 hover:bg-indigo-100 p-2 rounded transition">👥 Users</a>
                     @elseif(auth()->user()->role === 'bidder')
-                        <a href="#" class="block text-gray-700 hover:bg-indigo-100 p-2 rounded transition">🎯 Live Auctions</a>
-                        <a href="#" class="block text-gray-700 hover:bg-indigo-100 p-2 rounded transition">💰 My Bids</a>
+                        <a href="{{ route('auction.show', 1) }}" class="block text-gray-700 hover:bg-indigo-100 p-2 rounded transition">🎯 Live Auctions</a>
+                        <a href="{{ route('mybids') }}" class="block text-gray-700 hover:bg-indigo-100 p-2 rounded transition">💰 My Bids</a>
                     @endif
 
                     <form method="POST" action="{{ route('logout') }}" class="mt-4">
